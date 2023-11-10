@@ -3,9 +3,9 @@ export default {
   content: ["./resources/**/*.blade.php"],
   theme: {
     screens: {
-      // xs: {
-      //   max: "394px",
-      // },
+      xs: {
+        max: "394px",
+      },
       sm: "480px",
       md: "768px",
       lg: "976px",
