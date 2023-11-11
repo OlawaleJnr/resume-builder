@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ResumeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-  return view('welcome');
-});
-
-Route::get('/create-resume/step-1', function () {
-  return view('create-resume');
-})->name('resume.stepOne');
+Route::get('/', [ResumeController::class, 'index'])->name('home');
+Route::get('/onboarding/step-one', [ResumeController::class, 'onboardingStepOne'])->name('resume.stepOne');
+Route::post('/process/step-one', [ResumeController::class, 'processStepOne'])->name('resume.process.stepOne');

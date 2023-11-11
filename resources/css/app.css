@@ -52,3 +52,13 @@
 .open .hamburger-bottom {
   transform: rotate(-45deg) translateY(6px) translateX(-6px);
 }
+
+.is-invalid {
+  --tw-border-opacity: 1;
+  border-color: rgb(243 53 53 / var(--tw-border-opacity));
+}
+
+.is-valid {
+  --tw-border-opacity: 1;
+  border-color: rgb(205 205 205 / var(--tw-border-opacity));
+}

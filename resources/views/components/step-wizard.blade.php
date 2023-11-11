@@ -1,4 +1,4 @@
-<div class="h-full w-full py-16">
+<div class="h-full w-full py-14">
   <div class="container mx-auto">
     <!-- Code Block for progress bar Starts -->
     <dh-component>
