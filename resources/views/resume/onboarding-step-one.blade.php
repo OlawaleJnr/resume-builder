@@ -138,7 +138,7 @@
                   <div class="relative">
                     <input id="address" name="address" type="text" autocomplete="off"
                       class="w-full border @error('address') is-invalid @else is-valid @enderror border-[#CDCDCD] focus:border-[#0F585B] focus:ring-[#0F585B] focus:outline-none rounded-md px-4 py-2 xs:pt-[13px] pt-[15px] md:pt-[17px] font-inter text-[#475467] text-xs md:text-[13px] xs:text-[11px]"
-                      value="{{ old('address', session('address')) }}" />
+                      value="{{ old('address', session('address')) }}" spellcheck="false" />
                     <label for="address"
                       class="absolute left-4 lg:-top-3 -top-2 font-normal text-sm xs:text-[11px] md:text-[0.8rem] text-[#161616]/[.85] bg-white font-inter px-[6px]">Address</label>
                   </div>
@@ -207,9 +207,9 @@
 
               <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
                 <a href="{{ route('home') }}"
-                  class="mb-2 md:mb-0 bg-white px-5 py-3 text-sm text-center shadow-sm font-normal tracking-wider border text-[#0F585B] rounded-3xs font-inter text-[13px] md:text-[15px] xs:text-[11px]">Back</a>
+                  class="mb-2 md:mb-0 bg-white px-5 py-3 text-sm text-center shadow-sm font-normal tracking-wider border text-[#0F585B] rounded-3xs font-inter text-[13px] md:text-[13px] xs:text-[11px]">Back</a>
                 <button type="submit"
-                  class="mb-2 md:mb-0 bg-[#0F585B] px-5 py-3 text-sm shadow-sm font-normal tracking-wider text-white rounded-3xs hover:shadow-lg font-inter text-[13px] md:text-[15px] xs:text-[11px]">Continue</button>
+                  class="mb-2 md:mb-0 bg-[#0F585B] px-5 py-3 text-sm shadow-sm font-normal tracking-wider text-white rounded-3xs hover:shadow-lg font-inter text-[13px] md:text-[13px] xs:text-[11px]">Continue</button>
               </div>
             </form>
           </div>

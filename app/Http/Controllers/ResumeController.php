@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserStepOneRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserStepOneRequest;
+use App\Http\Requests\UserStepTwoRequest;
 
 class ResumeController extends Controller
 {
@@ -20,8 +21,13 @@ class ResumeController extends Controller
 
   public function onboardingStepTwo(Request $request)
   {
-    // $personal_info = session('personal_info');
     return view("resume.onboarding-step-two");
+  }
+
+  public function onboardingStepThree(Request $request)
+  {
+    $data = $request->session()->all();
+    return view("resume.onboarding-step-three", compact("data"));
   }
 
   public function processStepOne(UserStepOneRequest $request)
@@ -41,6 +47,18 @@ class ResumeController extends Controller
     $request->session()->put("country", $data['country']);
 
     // Redirect to step two
-    return redirect()->route("resume.stepTwo")->withInput();
+    return redirect()->route("resume.stepTwo");
+  }
+
+  public function processStepTwo(UserStepTwoRequest $request)
+  {
+    // Get validated data
+    $data = $request->validated();
+
+    // Saving data to session
+    $request->session()->put("profile_summary", $data['profile_summary']);
+
+    // Redirect to step three
+    return redirect()->route("resume.stepThree");
   }
 }
