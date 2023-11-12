@@ -33,18 +33,42 @@
               @csrf
               @method('POST')
               <div class="grid grid-cols-6 gap-6">
+                <!-- Job Title -->
+                <div class="flex flex-col col-span-6 sm:col-span-3 gap-y-[10px]">
+                  <div class="relative">
+                    <input id="job_title" name="job_title" type="text" autocomplete="off"
+                      class="w-full border @error('job_title') is-invalid @else is-valid @enderror focus:border-[#0F585B] focus:ring-[#0F585B] focus:outline-none rounded-md px-4 py-2 xs:pt-[13px] pt-[15px] md:pt-[17px] font-inter text-[#475467] text-xs md:text-[13px] xs:text-[11px]"
+                      value="{{ old('job_title', session('job_title')) }}" />
+                    <label for="job_title"
+                      class="absolute left-4 lg:-top-3 -top-2 font-normal text-sm xs:text-[11px] md:text-[0.8rem] text-[#161616]/[.85] bg-white font-inter px-[6px]">Job
+                      Title</label>
+                  </div>
+                  @error('job_title')
+                    <div class="block text-[#F33535] text-[12px] font-inter">
+                      <img class="h-4 w-4 inline-block"src="{{ asset('assets/svg/warning.svg') }}" alt="error">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                </div>
+
+                <div
+                  class="flex relative w-12 h-12 bg-[#0F585B] justify-center items-center m-1 mr-2 text-xl rounded-full text-white">
+                  AT</div>
+              </div>
+
+              <div class="grid grid-cols-6 gap-6">
                 <!-- First Name -->
                 <div class="flex flex-col col-span-6 sm:col-span-3 gap-y-[10px]">
                   <div class="relative">
                     <input id="first_name" name="first_name" type="text" autocomplete="off"
                       class="w-full border @error('first_name') is-invalid @else is-valid @enderror focus:border-[#0F585B] focus:ring-[#0F585B] focus:outline-none rounded-md px-4 py-2 xs:pt-[13px] pt-[15px] md:pt-[17px] font-inter text-[#475467] text-xs md:text-[13px] xs:text-[11px]"
-                      value="{{ old('first_name') }}" />
+                      value="{{ old('first_name', session('first_name')) }}" />
                     <label for="first_name"
                       class="absolute left-4 lg:-top-3 -top-2 font-normal text-sm xs:text-[11px] md:text-[0.8rem] text-[#161616]/[.85] bg-white font-inter px-[6px]">First
                       Name</label>
                   </div>
                   @error('first_name')
-                    <div class="block text-[#F33535] text-[13px] font-inter">
+                    <div class="block text-[#F33535] text-[12px] font-inter">
                       <img class="h-4 w-4 inline-block"src="{{ asset('assets/svg/warning.svg') }}" alt="error">
                       {{ $message }}
                     </div>
@@ -56,13 +80,13 @@
                   <div class="relative">
                     <input id="last_name" name="last_name" type="text" autocomplete="off"
                       class="w-full border @error('last_name') is-invalid @else is-valid @enderror border-[#CDCDCD] focus:border-[#0F585B] focus:ring-[#0F585B] focus:outline-none rounded-md px-4 py-2 xs:pt-[13px] pt-[15px] md:pt-[17px] font-inter text-[#475467] text-xs md:text-[13px] xs:text-[11px]"
-                      value="{{ old('last_name') }}" />
+                      value="{{ old('last_name', session('last_name')) }}" />
                     <label for="last_name"
                       class="absolute left-4 lg:-top-3 -top-2 font-normal text-sm xs:text-[11px] md:text-[0.8rem] text-[#161616]/[.85] bg-white font-inter px-[6px]">Last
                       Name</label>
                   </div>
                   @error('last_name')
-                    <div class="block text-[#F33535] text-[13px] font-inter">
+                    <div class="block text-[#F33535] text-[12px] font-inter">
                       <img class="h-4 w-4 inline-block"src="{{ asset('assets/svg/warning.svg') }}" alt="error">
                       {{ $message }}
                     </div>
@@ -76,13 +100,13 @@
                   <div class="relative">
                     <input id="email" name="email" type="email" autocomplete="off"
                       class="w-full border @error('email') is-invalid @else is-valid @enderror border-[#CDCDCD] focus:border-[#0F585B] focus:ring-[#0F585B] focus:outline-none rounded-md px-4 py-2 xs:pt-[13px] pt-[15px] md:pt-[17px] font-inter text-[#475467] text-xs md:text-[13px] xs:text-[11px]"
-                      value="{{ old('email') }}" />
+                      value="{{ old('email', session('email')) }}" />
                     <label for="email"
                       class="absolute left-4 lg:-top-3 -top-2 font-normal text-sm xs:text-[11px] md:text-[0.8rem] text-[#161616]/[.85] bg-white font-inter px-[6px]">Email
                       Address</label>
                   </div>
                   @error('email')
-                    <div class="block text-[#F33535] text-[13px] font-inter">
+                    <div class="block text-[#F33535] text-[12px] font-inter">
                       <img class="h-4 w-4 inline-block"src="{{ asset('assets/svg/warning.svg') }}" alt="error">
                       {{ $message }}
                     </div>
@@ -94,13 +118,13 @@
                   <div class="relative">
                     <input id="mobile_number" name="mobile_number" type="number" autocomplete="off"
                       class="w-full border @error('mobile_number') is-invalid @else is-valid @enderror border-[#CDCDCD] focus:border-[#0F585B] focus:ring-[#0F585B] focus:outline-none rounded-md px-4 py-2 xs:pt-[13px] pt-[15px] md:pt-[17px] font-inter text-[#475467] text-xs md:text-[13px] xs:text-[11px]"
-                      value="{{ old('mobile_number') }}" />
+                      value="{{ old('mobile_number', session('mobile_number')) }}" />
                     <label for="mobile_number"
                       class="absolute left-4 lg:-top-3 -top-2 font-normal text-sm xs:text-[11px] md:text-[0.8rem] text-[#161616]/[.85] bg-white font-inter px-[6px]">Mobile
                       Number</label>
                   </div>
                   @error('mobile_number')
-                    <div class="block text-[#F33535] text-[13px] font-inter">
+                    <div class="block text-[#F33535] text-[12px] font-inter">
                       <img class="h-4 w-4 inline-block"src="{{ asset('assets/svg/warning.svg') }}" alt="error">
                       {{ $message }}
                     </div>
@@ -114,12 +138,12 @@
                   <div class="relative">
                     <input id="address" name="address" type="text" autocomplete="off"
                       class="w-full border @error('address') is-invalid @else is-valid @enderror border-[#CDCDCD] focus:border-[#0F585B] focus:ring-[#0F585B] focus:outline-none rounded-md px-4 py-2 xs:pt-[13px] pt-[15px] md:pt-[17px] font-inter text-[#475467] text-xs md:text-[13px] xs:text-[11px]"
-                      value="{{ old('address') }}" />
+                      value="{{ old('address', session('address')) }}" />
                     <label for="address"
                       class="absolute left-4 lg:-top-3 -top-2 font-normal text-sm xs:text-[11px] md:text-[0.8rem] text-[#161616]/[.85] bg-white font-inter px-[6px]">Address</label>
                   </div>
                   @error('address')
-                    <div class="block text-[#F33535] text-[13px] font-inter">
+                    <div class="block text-[#F33535] text-[12px] font-inter">
                       <img class="h-4 w-4 inline-block"src="{{ asset('assets/svg/warning.svg') }}" alt="error">
                       {{ $message }}
                     </div>
@@ -131,13 +155,13 @@
                   <div class="relative">
                     <input id="postal_code" name="postal_code" type="number" autocomplete="off"
                       class="w-full border @error('postal_code') is-invalid @else is-valid @enderror border-[#CDCDCD] focus:border-[#0F585B] focus:ring-[#0F585B] focus:outline-none rounded-md px-4 py-2 xs:pt-[13px] pt-[15px] md:pt-[17px] font-inter text-[#475467] text-xs md:text-[13px] xs:text-[11px]"
-                      value="{{ old('postal_code') }}" />
+                      value="{{ old('postal_code', session('postal_code')) }}" />
                     <label for="postal_code"
                       class="absolute left-4 lg:-top-3 -top-2 font-normal text-sm xs:text-[11px] md:text-[0.8rem] text-[#161616]/[.85] bg-white font-inter px-[6px]">Postal
                       Code</label>
                   </div>
                   @error('postal_code')
-                    <div class="block text-[#F33535] text-[13px] font-inter">
+                    <div class="block text-[#F33535] text-[12px] font-inter">
                       <img class="h-4 w-4 inline-block"src="{{ asset('assets/svg/warning.svg') }}" alt="error">
                       {{ $message }}
                     </div>
@@ -151,12 +175,12 @@
                   <div class="relative">
                     <input id="city" name="city" type="text" autocomplete="off"
                       class="w-full border @error('city') is-invalid @else is-valid @enderror border-[#CDCDCD] focus:border-[#0F585B] focus:ring-[#0F585B] focus:outline-none rounded-md px-4 py-2 xs:pt-[13px] pt-[15px] md:pt-[17px] font-inter text-[#475467] text-xs md:text-[13px] xs:text-[11px]"
-                      value="{{ old('city') }}" />
+                      value="{{ old('city', session('city')) }}" />
                     <label for="city"
                       class="absolute left-4 lg:-top-3 -top-2 font-normal text-sm xs:text-[11px] md:text-[0.8rem] text-[#161616]/[.85] bg-white font-inter px-[6px]">City</label>
                   </div>
                   @error('city')
-                    <div class="block text-[#F33535] text-[13px] font-inter">
+                    <div class="block text-[#F33535] text-[12px] font-inter">
                       <img class="h-4 w-4 inline-block"src="{{ asset('assets/svg/warning.svg') }}" alt="error">
                       {{ $message }}
                     </div>
@@ -168,12 +192,12 @@
                   <div class="relative">
                     <input id="country" name="country" type="text" autocomplete="off"
                       class="w-full border @error('country') is-invalid @else is-valid @enderror border-[#CDCDCD] focus:border-[#0F585B] focus:ring-[#0F585B] focus:outline-none rounded-md px-4 py-2 xs:pt-[13px] pt-[15px] md:pt-[17px] font-inter text-[#475467] text-xs md:text-[13px] xs:text-[11px]"
-                      value="{{ old('country') }}" />
+                      value="{{ old('country', session('country')) }}" />
                     <label for="country"
                       class="absolute left-4 lg:-top-3 -top-2 font-normal text-sm xs:text-[11px] md:text-[0.8rem] text-[#161616]/[.85] bg-white font-inter px-[6px]">Country</label>
                   </div>
                   @error('country')
-                    <div class="block text-[#F33535] text-[13px] font-inter">
+                    <div class="block text-[#F33535] text-[12px] font-inter">
                       <img class="h-4 w-4 inline-block"src="{{ asset('assets/svg/warning.svg') }}" alt="error">
                       {{ $message }}
                     </div>
@@ -183,9 +207,9 @@
 
               <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
                 <a href="{{ route('home') }}"
-                  class="mb-2 md:mb-0 bg-white px-5 py-3 text-sm text-center shadow-sm font-semibold tracking-wider border text-[#0F585B] rounded-3xs font-inter text-[13px] md:text-[15px] xs:text-[11px]">Back</a>
+                  class="mb-2 md:mb-0 bg-white px-5 py-3 text-sm text-center shadow-sm font-normal tracking-wider border text-[#0F585B] rounded-3xs font-inter text-[13px] md:text-[15px] xs:text-[11px]">Back</a>
                 <button type="submit"
-                  class="mb-2 md:mb-0 bg-[#0F585B] px-5 py-3 text-sm shadow-sm font-semibold tracking-wider text-white rounded-3xs hover:shadow-lg font-inter text-[13px] md:text-[15px] xs:text-[11px]">Continue</button>
+                  class="mb-2 md:mb-0 bg-[#0F585B] px-5 py-3 text-sm shadow-sm font-normal tracking-wider text-white rounded-3xs hover:shadow-lg font-inter text-[13px] md:text-[15px] xs:text-[11px]">Continue</button>
               </div>
             </form>
           </div>

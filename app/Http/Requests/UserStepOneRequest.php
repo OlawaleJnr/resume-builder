@@ -22,6 +22,7 @@ class UserStepOneRequest extends FormRequest
   public function rules(): array
   {
     return [
+      "job_title" => "required",
       "first_name" => "required",
       "last_name" => "required",
       "email" => "required|email",

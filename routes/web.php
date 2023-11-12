@@ -16,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ResumeController::class, 'index'])->name('home');
 Route::get('/onboarding/step-one', [ResumeController::class, 'onboardingStepOne'])->name('resume.stepOne');
+Route::get('/onboarding/step-two', [ResumeController::class, 'onboardingStepTwo'])->name('resume.stepTwo');
 Route::post('/process/step-one', [ResumeController::class, 'processStepOne'])->name('resume.process.stepOne');
