@@ -34,9 +34,9 @@
               @method('POST')
               <div class="flex flex-col gap-y-3">
                 <textarea rows="2" name="profile_summary" id="profile_summary"
-                  class="p-3 h-28 border border-[#CDCDCD] focus:border-[#0F585B] focus:ring-[#0F585B] focus:outline-none rounded-md outline-none placeholder:text-[#101828]/[.65] resize-none xs:placeholder:text-[10px] sm:placeholder:text-sm text-sm @error('profile_summary') is-invalid @else is-valid @enderror"
+                  class="p-3 h-28 border border-[#CDCDCD] focus:border-[#0F585B] focus:ring-[#0F585B] focus:outline-none rounded-md outline-none placeholder:text-[#101828]/[.65] resize-none xs:placeholder:text-[10px] text-[#475467] sm:placeholder:text-sm text-sm @error('profile_summary') is-invalid @else is-valid @enderror"
                   spellcheck="false"
-                  placeholder="e.g. Proficient in an assortment of technologies, including Java, ASP.NET, C#, IIS..."></textarea>
+                  placeholder="e.g. Proficient in an assortment of technologies, including Java, ASP.NET, C#, IIS...">{{ old('profile_summary', session('profile_summary')) }}</textarea>
                 @error('profile_summary')
                   <div class="block text-[#F33535] text-[12px] font-inter">
                     <img class="h-4 w-4 inline-block"src="{{ asset('assets/svg/warning.svg') }}" alt="error">
